@@ -73,7 +73,7 @@ const filterUniquePokemon = (data) => {
         <div className="left-header">
           <img src={Pokemon} alt="pokemon-icon" className="pokemon-img" />
         </div>
-        <h1>Compare Pokémon</h1>
+        <h1>Bookmarked Pokémon</h1>
         <div className="right-header">
         <button
             class="compare-button"
