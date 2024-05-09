@@ -12,8 +12,8 @@ https://pokemon-website-flurn.vercel.app/
 -Compare Pokemon : User can go Compare page by clicking this button  
 
 -Bookmark : User can go Bookmark page by clicking this button  
-
 <br>
+
 ### Home page 
 ![home_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/764254d0-920c-40f0-9e53-516650202746)  
 
