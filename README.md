@@ -65,8 +65,6 @@ To run this project locally, follow these steps:
 - Material-UI (for icons and components)
 - CSS (for styling)
 
-## Author
 
-This project was developed by [Mansi Sorathiya].
 
 
