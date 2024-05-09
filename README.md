@@ -6,12 +6,12 @@ This is a React-based web application that utilizes Context API, CSS styling, ro
 https://pokemon-website-flurn.vercel.app/
 
 ## User Interactions Guide:
-### common buttons
--Back To home : User can go home by clicking this button  
+### Common buttons
+-Back To home button: User can go home by clicking this button  
 
--Compare Pokemon : User can go Compare page by clicking this button  
+-Compare Pokemon button: User can go Compare page by clicking this button  
 
--Bookmark : User can go Bookmark page by clicking this button  
+-Bookmark button: User can go Bookmark page by clicking this button  
 <br>
 
 ### Home page 
