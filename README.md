@@ -33,9 +33,8 @@ https://pokemon-website-flurn.vercel.app/
    
 
 ### Bookmark page
-![bookmark_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/c048d9e7-2737-4797-afea-15007d0eb32c)
+![bookmark_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/c45bfeff-f911-400d-9bf6-5030dba99169)  
 
-- Click any card to go details page for that particular card
 
 ## Features
 
