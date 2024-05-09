@@ -5,6 +5,33 @@ This is a React-based web application that utilizes Context API, CSS styling, ro
 ## Hosted Link :
 https://pokemon-website-flurn.vercel.app/
 
+## User Interactions Guide:
+### common buttons
+-Back To home : User can go home by clicking this button
+-Compare Pokemon : User can go Compare page by clicking this button
+-Bookmark : User can go Bookmark page by clicking this button
+### Home page 
+![home_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/764254d0-920c-40f0-9e53-516650202746)  
+
+- click on any card - you can go details page for that particular card
+- 1 suggest that user can search data by name
+- 2 suggest that user can search data by abilities
+- 3 suggest that user can search data by habitanat
+- 4 suggest that user can search data by location
+- 5 suggest that user can search data by group
+- 6 suggest that use can search data by characteristics
+  
+### Deatils Page
+![details_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/820c222b-c696-4156-b03f-4cf2508ba8dd)
+
+### Compare Page
+![compare_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/9bcb32fe-c0fc-4347-9f20-f369732235bc)
+   
+
+### Bookmark page
+![bookmark_page](https://github.com/mansi2020/pokemon_website_flurn/assets/57188328/c048d9e7-2737-4797-afea-15007d0eb32c)
+
+
 ## Features
 
 ### Search Page
