@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Pokémon Search and Listing Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based web application that utilizes Context API, CSS styling, routing, and different components to implement a Pokémon search, listing, details, and comparison functionalities.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Search Page
 
-### `npm start`
+- The search page allows users to input a Pokémon name and initiate a search.
+- An API call is made to fetch the details of the searched Pokémon.
+- A loading indicator is displayed during API call execution.
+- Error messages are shown if the API call fails.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Listing Page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Shows all Pokémon retrieved from the API response.
+- Displays Pokémon images and titles in a grid format.
+- Implements infinite scrolling to load more Pokémon as the user scrolls down.
+- Provides filtering options based on abilities, characteristics, group, habitat, location, species, etc.
+- Ensures smooth functionality even with a large number of Pokémon loaded.
 
-### `npm test`
+### Details Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Displays detailed information about a selected Pokémon.
+- Properly formats and presents the Pokémon details fetched from the API.
+- Includes a bookmark icon to save the Pokémon as a favorite.
+- Indicates bookmarked Pokémon with a filled bookmark icon.
+- Allows users to toggle bookmark status by clicking the bookmark icon.
 
-### `npm run build`
+### Compare Pokémon Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Allows users to select two Pokémon from the listing and compare their details.
+- Displays selected Pokémon details side by side, including moves, types, images, and stats.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Bookmarks Screen
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Displays all bookmarked Pokémon saved locally on the device.
+- Allows users to remove Pokémon from bookmarks.
 
-### `npm run eject`
+## Components and Routing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The website consists of multiple components and utilizes React Router for navigation:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Search Page (`Search.js`)**: Handles Pokémon search functionality.
+- **Listing Page (`Listing.js`)**: Displays a grid of Pokémon fetched from the API with infinite scrolling and filtering options.
+- **Details Page (`PokemonDetails.js`)**: Shows detailed information of a selected Pokémon and allows bookmarking.
+- **Compare Pokémon Page (`PokemonCompare.js`)**: Bonus feature to compare details of two Pokémon side by side.
+- **Bookmarks Screen (`Bookmarks.js`)**: Bonus feature to display and manage bookmarked Pokémon.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To run this project locally, follow these steps:
 
-## Learn More
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the project directory: `cd pokemon-website`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React.js
+- React Router
+- Context API (for state management)
+- Axios (for API calls)
+- Material-UI (for icons and components)
+- CSS (for styling)
 
-### Code Splitting
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project was developed by [Mansi Sorathiya].
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
