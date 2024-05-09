@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import PokemonDetails from "./Component/PokemonDetails/PokemonDetails"
+import { ContextProvider } from "./Context/Context";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PokemonList from "./Component/PokemonList/PokemonList";
+import PokemonCompare from "./Component/PokemonCompare/PokemonCompare";
+import Bookmark from "./Component/Bookmark/Bookmark";
 
 function App() {
+  const router = createBrowserRouter([ 
+    {
+      path: "/",
+      element: <PokemonList/>
+    },{
+      path : "/detail/:name",
+      element:<PokemonDetails/>
+    },{
+      path : "/pokemoncompare",
+      element:<PokemonCompare/>
+    },{
+      path : "/bookmark",
+      element:<Bookmark/>
+    }
+  ]);
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ContextProvider>
+      <RouterProvider router={router}>
+      
+        <PokemonList/>
+      
+      </RouterProvider>
+      </ContextProvider>
     </div>
+    
   );
 }
 

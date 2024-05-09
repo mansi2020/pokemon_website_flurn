@@ -1,0 +1,135 @@
+/* PokemonCompare.css */
+
+
+  
+  .pokemon-compare-container {
+    max-width: calc(100vw - 20px);
+    margin: 0 auto;
+    padding: 20px;
+    height:calc(100vh - 80px);
+  }
+
+  .pokemon-list-header h1{
+    color:white;
+    margin-top:10px;
+    /* border:2px solid; */
+  }
+  .compare-card-img{
+    width:100px;
+    height:100px;
+  }
+  
+  .pokemon-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  .right-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .right-header button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #28a745; /* Green button background color */
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .right-header button:hover {
+    background-color: #218838;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .compare-selectors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top:20px;
+  }
+  
+  .compare-selectors select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 45%;
+  }
+  
+  .compare-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff; /* Blue button background color */
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .compare-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .comparison-details {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    margin-left:20px;
+  }
+  .pokemon-details2{
+    margin-left:80px;
+  }
+  
+  .pokemon-details {
+    width:500px;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom right, rgb(240 234 205), rgb(234 207 75));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-details img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-details p {
+    margin-bottom: 8px;
+  }
+  
+  /* Animation Example (Fade In) */
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,74 @@
+/* PokemonDetails Component Styles */
+
+.pokemon-details-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, rgb(240 234 205), rgb(234 207 75));
+    margin-top: 60px;
+    width: 800px;
+    margin: auto;
+    margin-top: 40px;
+}
+  
+  .pokemon-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pokemon-details-sub-container {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .pokemon-details-sub-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .pokemon-details-sub-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-details-sub-container strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .bookmark-icon-detail-page-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position:absolute;
+    right:0px;
+    top:0px;
+  }
+  .bookmark-icon-detail-page-btn svg{
+    height:50px;
+    width:40px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .pokemon-details-container {
+      flex-direction: column;
+      /* align-items: center; */
+    }
+  
+    .pokemon-image {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 20px;
+    }
+  }
+  
