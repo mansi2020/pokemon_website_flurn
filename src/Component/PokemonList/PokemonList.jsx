@@ -4,9 +4,7 @@ import "./pokemonList.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UserContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
+
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SearchIcon from "@mui/icons-material/Search";
@@ -22,7 +20,6 @@ const PokemonList = () => {
   const [selectedGroup, setSelectedGroup] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [isBookmarked, setIsBookmarked] = useState(false);
-  // const [bookmarkStatus, setBookmarkStatus] = useState({});
 
   const [offset0, setOffset0] = useState(1);
   const [offset, setOffset] = useState(20);
@@ -85,7 +82,6 @@ const PokemonList = () => {
             group = "Other Pokémon";
             break;
         }
-        // console.log(`Pokemon: ${pokemonData.name}, Primary Type: ${primaryType}, Group: ${group}`); // Debugging lin
 
         const pokemonInfo = {
           id: pokemonData.id,
@@ -324,25 +320,51 @@ const PokemonList = () => {
                   to={`/detail/${pokemon.name}`}
                   state={{ isBookmarked: bookmarkStatus[pokemon.id] }}
                 >
-                  <img src={pokemon.image} alt={pokemon.name} className="card-img"/>
+                  <img
+                    src={pokemon.image}
+                    alt={pokemon.name}
+                    className="card-img"
+                  />
                   <div>
                     <h3 className="card-name">{pokemon.name}</h3>
-                    <p className="card-ability"><span className="card-title">Abilities:</span> {pokemon.abilities.join(", ")}</p>
-                    <p className="card-types"><span className="card-title">Types:</span> {pokemon.types.join(", ")}</p>
-                    <p className="card-group"><span className="card-title">Group:</span> {pokemon.group}</p>
+                    <p className="card-ability">
+                      <span className="card-title">Abilities:</span>{" "}
+                      {pokemon.abilities.join(", ")}
+                    </p>
+                    <p className="card-types">
+                      <span className="card-title">Types:</span>{" "}
+                      {pokemon.types.join(", ")}
+                    </p>
+                    <p className="card-group">
+                      <span className="card-title">Group:</span> {pokemon.group}
+                    </p>
                     {/* <p>Species: {pokemon.species}</p> */}
-                    <p className="card-habitant"><span className="card-title">Habitat:</span> {pokemon.habitat}</p>
+                    <p className="card-habitant">
+                      <span className="card-title">Habitat:</span>{" "}
+                      {pokemon.habitat}
+                    </p>
                     {pokemon.locations ? (
-                      <p className="card-location"><span className="card-title">Location:</span> {pokemon.locations}</p>
+                      <p className="card-location">
+                        <span className="card-title">Location:</span>{" "}
+                        {pokemon.locations}
+                      </p>
                     ) : (
-                      <p className="card-location"><span className="card-title">Location</span>: Not avilable</p>
+                      <p className="card-location">
+                        <span className="card-title">Location</span>: Not
+                        avilable
+                      </p>
                     )}
-                    <p className="card-char"><span className="card-title">Characteristics:</span> {pokemon.characteristics[0]}</p>
-                    
+                    <p className="card-char">
+                      <span className="card-title">Characteristics:</span>{" "}
+                      {pokemon.characteristics[0]}
+                    </p>
                   </div>
                 </Link>
                 <div>
-                  <button onClick={() => toggleBookmark(pokemon.id)} className="card-bookmark-btn">
+                  <button
+                    onClick={() => toggleBookmark(pokemon.id)}
+                    className="card-bookmark-btn"
+                  >
                     {bookmarkStatus[pokemon.id] ? (
                       <BookmarkIcon style={{ color: "black" }} /> // Filled bookmark icon
                     ) : (

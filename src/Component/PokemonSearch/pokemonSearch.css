@@ -1,37 +1,38 @@
+/*pokemonsearch style  */
+
 /* loader container */
 .loader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .loader {
-    border: 8px solid rgba(0, 0, 0, 0.1);
-    border-left: 8px solid #00BFFF; /* Use your desired loader color */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite; /* Animation duration and timing */
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* error */
-  .error {
-    color: red;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
 
+.loader {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left: 8px solid #00bfff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
 
-  /* search data container */
-  .searchData{
-    display:flex;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* error */
+.error {
+  color: red;
+}
+
+/* search data container */
+.searchData {
+  display: flex;
+}
