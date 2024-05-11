@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext,useRef } from "react";
 import axios from "axios";
 import "./pokemonList.css";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -12,7 +12,9 @@ import Pokemon from "./../../Assests/pokemon-img.png";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
-  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
+  const [filteredPokemonList, setFilteredPokemonList] = useState([
+    ...pokemonList,
+  ]);
   const [selectedAbility, setSelectedAbility] = useState("");
   const [selectedHabitat, setSelectedHabitat] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -20,6 +22,9 @@ const PokemonList = () => {
   const [selectedGroup, setSelectedGroup] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const pokemonGridRef = useRef(null);
 
   const [offset0, setOffset0] = useState(1);
   const [offset, setOffset] = useState(20);
@@ -33,10 +38,11 @@ const PokemonList = () => {
 
   useEffect(() => {
     fetchPokemonList();
-    console.log(bookmarkStatus);
   }, [bookmarkStatus]);
 
   const fetchPokemonList = async () => {
+    setIsLoading(true);
+    
     const promises = [];
     for (let i = offset0; i <= offset; i++) {
       const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -105,13 +111,15 @@ const PokemonList = () => {
       setPokemonList((prevList) => [...prevList, ...newPokemonList]);
       setFilteredPokemonList((prevList) => [...prevList, ...newPokemonList]);
       setUpdatedPokeList((prevList) => [...prevList, ...newPokemonList]);
-      setOffset((prevOffset) => prevOffset + limit);
-      setOffset0((prevOffset) => prevOffset + limit);
+      setOffset((prevOffset) => prevOffset + 20);
+      setOffset0((prevOffset) => prevOffset + 20);
+     
     } catch (error) {
       console.error("Error fetching or processing Pokémon:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
-  // console.log(updatedPokeList);
 
   // filter by pokemon name
   const changeSearchData = (e) => {
@@ -303,78 +311,85 @@ const PokemonList = () => {
           />
         </div>
       </div>
-
+      {/* {isLoading ? (
+          <div className="loader"></div>
+        ) : null} */}
       <InfiniteScroll
-        dataLength={pokemonList.length}
+        dataLength={filteredPokemonList.length}
         next={fetchPokemonList}
         hasMore={true}
         // loader={<h4>Loading...</h4>}
         endMessage={<p>No more Pokémon to load.</p>}
         scrollThreshold="40px"
       >
-        <div className="pokemon-grid">
-          {filteredPokemonList &&
-            filteredPokemonList.map((pokemon) => (
-              <div key={pokemon.id} className="pokemon-item">
-                <Link
-                  to={`/detail/${pokemon.name}`}
-                  state={{ isBookmarked: bookmarkStatus[pokemon.id] }}
-                >
-                  <img
-                    src={pokemon.image}
-                    alt={pokemon.name}
-                    className="card-img"
-                  />
-                  <div>
-                    <h3 className="card-name">{pokemon.name}</h3>
-                    <p className="card-ability">
-                      <span className="card-title">Abilities:</span>{" "}
-                      {pokemon.abilities.join(", ")}
-                    </p>
-                    <p className="card-types">
-                      <span className="card-title">Types:</span>{" "}
-                      {pokemon.types.join(", ")}
-                    </p>
-                    <p className="card-group">
-                      <span className="card-title">Group:</span> {pokemon.group}
-                    </p>
-                    {/* <p>Species: {pokemon.species}</p> */}
-                    <p className="card-habitant">
-                      <span className="card-title">Habitat:</span>{" "}
-                      {pokemon.habitat}
-                    </p>
-                    {pokemon.locations ? (
-                      <p className="card-location">
-                        <span className="card-title">Location:</span>{" "}
-                        {pokemon.locations}
-                      </p>
-                    ) : (
-                      <p className="card-location">
-                        <span className="card-title">Location</span>: Not
-                        avilable
-                      </p>
-                    )}
-                    <p className="card-char">
-                      <span className="card-title">Characteristics:</span>{" "}
-                      {pokemon.characteristics[0]}
-                    </p>
-                  </div>
-                </Link>
-                <div>
-                  <button
-                    onClick={() => toggleBookmark(pokemon.id)}
-                    className="card-bookmark-btn"
+        
+          <div className="pokemon-grid">
+            {filteredPokemonList &&
+              filteredPokemonList.map((pokemon) => (
+                <div key={pokemon.id} className="pokemon-item">
+                  <Link
+                    to={`/detail/${pokemon.name}`}
+                    state={{ isBookmarked: bookmarkStatus[pokemon.id] }}
                   >
-                    {bookmarkStatus[pokemon.id] ? (
-                      <BookmarkIcon style={{ color: "black" }} /> // Filled bookmark icon
-                    ) : (
-                      <BookmarkBorderIcon style={{ color: "black" }} /> // Unfilled bookmark icon
-                    )}
-                  </button>
+                    <img
+                      src={pokemon.image}
+                      alt={pokemon.name}
+                      className="card-img"
+                    />
+                    <div>
+                      <h3 className="card-name">{pokemon.name}</h3>
+                      <p className="card-ability">
+                        <span className="card-title">Abilities:</span>{" "}
+                        {pokemon.abilities.join(", ")}
+                      </p>
+                      <p className="card-types">
+                        <span className="card-title">Types:</span>{" "}
+                        {pokemon.types.join(", ")}
+                      </p>
+                      <p className="card-group">
+                        <span className="card-title">Group:</span>{" "}
+                        {pokemon.group}
+                      </p>
+                      {/* <p>Species: {pokemon.species}</p> */}
+                      <p className="card-habitant">
+                        <span className="card-title">Habitat:</span>{" "}
+                        {pokemon.habitat}
+                      </p>
+                      {pokemon.locations ? (
+                        <p className="card-location">
+                          <span className="card-title">Location:</span>{" "}
+                          {pokemon.locations}
+                        </p>
+                      ) : (
+                        <p className="card-location">
+                          <span className="card-title">Location</span>: Not
+                          avilable
+                        </p>
+                      )}
+                      <p className="card-char">
+                        <span className="card-title">Characteristics:</span>{" "}
+                        {pokemon.characteristics[0]}
+                      </p>
+                    </div>
+                  </Link>
+                  <div>
+                    <button
+                      onClick={() => toggleBookmark(pokemon.id)}
+                      className="card-bookmark-btn"
+                    >
+                      {bookmarkStatus[pokemon.id] ? (
+                        <BookmarkIcon style={{ color: "black" }} /> // Filled bookmark icon
+                      ) : (
+                        <BookmarkBorderIcon style={{ color: "black" }} /> // Unfilled bookmark icon
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
+              ))}
+          </div>
+       
+
+
       </InfiniteScroll>
     </div>
   );
